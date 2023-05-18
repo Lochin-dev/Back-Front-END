@@ -1,0 +1,41 @@
+.company_from{
+    display: flex;
+    gap: 10px;
+}
+
+.company_wrapper{
+    background: #198754;
+    border-radius: 10px;
+    padding: 40px;
+    height: 83vh;
+}
+
+.company_wrapper_div{
+padding: 0 0 20px 0 ;
+}
+
+.scrolll{
+ height: 64vh;
+ overflow-y:auto;
+}
+
+.asos{
+    display: flex;
+}
+
+.asos_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+background-color: #fdb3b3;
+width: 25%;
+padding: 20px;
+height: 87vh;
+}
+
+.asos_wrap{
+    padding: 20px;
+    width: 75%;
+    height: 87vh;
+    background-color: #979797;
+}

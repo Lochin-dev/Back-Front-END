@@ -1,0 +1,28 @@
+.home{
+    width: 100%;
+    padding-top: 30px;
+    height: 70vh;
+}
+
+.home_wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.home_wrapper_wrap{
+    width: 19%;
+}
+
+.home_title{
+    padding-bottom: 30px;
+    font-weight: 900;
+    color: rgba(230, 255, 2, 0.466);
+    font-size: 50px;
+}
+
+.home_wrapper_wrap_text{
+    font-size: 20px;
+    font-weight: 500;
+  
+}
+

@@ -1,0 +1,45 @@
+.ui_btn {
+    width: 200px;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge #149CEA;
+    outline: none;
+    background-color: transparent;
+    color: rgb(29, 27, 27);
+    transition: 0.4s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .ui_btn::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 3%;
+    width: 95%;
+    height:5%;
+    background-color: #ffffff;
+    transition: 0.5s;
+    transform-origin: center;
+  }
+  
+  .ui_btn::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    width: 95%;
+    height: 5%;
+    background-color: #ffffff;
+    transition: 0.5s;
+  }
+  
+  .ui_btn:hover::before, .ui_btn:hover::after {
+    transform: scale(0)
+  }
+  
+  .ui_btn:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+  }

@@ -1,0 +1,41 @@
+.year_from{
+    display: flex;
+    gap: 10px;
+}
+
+.year_wrapper{
+    background: #0D6EFD;
+    border-radius: 10px;
+    padding: 40px;
+    height: 83vh;
+}
+
+.year_wrapper_div{
+padding: 0 0 20px 0 ;
+}
+
+.scrolll{
+ height: 68vh;
+ overflow-y:auto;
+}
+
+.asos{
+    display: flex;
+}
+
+.asos_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+background-color: #fdb3b3;
+width: 25%;
+padding: 20px;
+height: 88.7vh;
+}
+
+.asos_wrap{
+    padding: 20px;
+    width: 75%;
+    height: 88.7vh;
+    background-color: #979797;
+}
