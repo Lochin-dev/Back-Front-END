@@ -74,7 +74,7 @@ const index = () => {
     <div>
       <div className="asos">
         <div className="asos_wrapper">
-          <NavLink to="/year" className="">
+          <NavLink to="/company" className="">
             <button type="button" className="btn btn-success fw-bold w-100">
               Compayn
             </button>
