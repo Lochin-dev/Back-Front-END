@@ -11,27 +11,74 @@ const index = () => {
     }
   });
 
-  const postCompany = async (e) => {
-    e.preventDefault();
-    let { company_title } = e.target;
+  // ===================================
+
+  const [formData, setFormData] = useState({
+    textInput: "",
+    fileInput: null,
+  });
+
+  const handleInputChange = async (event) => {
+    const { name, value, type, files } = event.target;
+    const updatedFormData = { ...formData };
+
+    // Matn kiritish inputining qiymatini o'zgartirish
+    if (type === "text") {
+      updatedFormData.textInput = value;
+    }
+
+    // Fayl tanlash inputining qiymatini o'zgartirish
+    if (type === "file") {
+      updatedFormData.fileInput = files[0];
+    }
+
+    setFormData(updatedFormData);
+  };
+  const [data, setData] = useState([]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // Form submit qilganda ishlatiladigan ma'lumotlar
+    const { textInput, fileInput } = formData;
+    const data1 = new FormData();
+    data1.append("file", fileInput);
+    data1.append("upload_preset", "test_home_image");
+    const respons = await fetch(
+      "https://api.cloudinary.com/v1_1/dm16fzmqd/image/upload",
+      {
+        method: "POST",
+        body: data1,
+      }
+    );
+    const data2 = await respons.json();
+    let img = data2.secure_url;
+    console.log(img);
+    // +++++++++++++++++++++++++++++++++++++++
+    console.log(textInput);
     let data = await fetch("http://localhost:1010/company", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        company_title: company_title.value,
+        company_title: textInput,
+        company_img: img,
       }),
     })
       .then((res) => res.json())
       .then((data) => data);
     alert(data?.msg);
-    company_title.value = "";
+
     const response = await fetch("http://localhost:1010/company");
     const newData = await response.json();
     setData(newData);
+    setFormData({
+      textInput: "",
+      fileInput: null,
+    });
   };
-  const [data, setData] = useState([]);
+  // ===================================
 
   const fetchData = () => {
     fetch("http://localhost:1010/company")
@@ -108,21 +155,23 @@ const index = () => {
             <div className="company_wrapper">
               <div className="company_wrapper_div">
                 <form
-                  onSubmit={(e) => {
-                    postCompany(e);
-                  }}
+                  onSubmit={handleSubmit}
                   className="company_from"
                   action="#"
                 >
                   <input
                     type="text"
+                    name="textInput"
+                    value={formData.textInput}
+                    onChange={handleInputChange}
                     className="form-control"
                     placeholder="Entr Company name"
-                    name="company_title"
                   />
 
                   <input
                     type="file"
+                    name="fileInput"
+                    onChange={handleInputChange}
                     className="form-control"
                     placeholder="Company img"
                   />

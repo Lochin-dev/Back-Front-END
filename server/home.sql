@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS companys CASCADE;
 CREATE TABLE companys(
     id VARCHAR UNIQUE NOT NULL DEFAULT uuid_generate_v4(),
     company_title VARCHAR(50) UNIQUE NOT NULL,
-    company_img TEXT DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtE4J2KTTArRTgR8a-OffeJsjQRxt5tpenJwrLZt7sidYaokMzX-rzoidJh1XuI9w_xU&usqp=CAU'
+    company_img VARCHAR NOT NULL
 );
 INSERT INTO companys(company_title)VALUES
 ('Golden hous'),

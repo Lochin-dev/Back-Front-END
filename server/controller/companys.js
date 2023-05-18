@@ -45,34 +45,16 @@ const apiBank = async (req, res) => {
 }
 
 const createCompanys = async (req, res) => {
-    const { company_title } = req.body
+    const { company_title, company_img } = req.body
     let companyList = await pool.query
         (`SELECT * FROM companys WHERE company_title = $1`, [company_title])
     if (companyList.rowCount >= 1) return res.status(400).send(JSON.stringify({
         msg: "Bunday kompaniya bor!!"
     }))
 
-
-    // const files = e.target.files;
-    // const data = new FormData();
-    // data.append('file', files[0]);
-    // data.append("upload_preset", "test_home_image");
-    // const res = await fetch(
-    //     "https://api.cloudinary.com/v1_1/dm16fzmqd/image/upload",
-    //     {
-    //         method: 'POST',
-    //         body: data
-    //     }
-    // )
-
-    // const data2 = await res.json();
-    // setFile(data2.secure_url);
-    // let img = data2.secure_url
-
-
     let companyCreate = await pool.query(`
-    INSERT INTO companys( company_title )VALUES ($1);`,
-        [company_title]);
+    INSERT INTO companys( company_title, company_img )VALUES ($1, $2);`,
+        [company_title, company_img]);
 
     res.status(201).json({
         msg: 'Created!'
