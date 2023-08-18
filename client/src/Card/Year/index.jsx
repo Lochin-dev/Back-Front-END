@@ -25,7 +25,6 @@ const index = () => {
     e.preventDefault();
 
     const selectedItem = dataId.find((item) => item.id === selectedItemId);
-    console.log(selectedItem?.id);
 
     let { year_num } = e.target;
     let data = await fetch("http://localhost:1010/year", {

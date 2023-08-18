@@ -28,7 +28,6 @@ const index = () => {
       })
         .then((res) => res.json())
         .then((data) => data);
-      console.log(data?.msg);
       alert(data?.msg);
       user_name.value = "";
       user_email.value = "";
@@ -36,21 +35,6 @@ const index = () => {
       if (data?.token) {
         localStorage.setItem("token", data.token)((location.href = "/company"));
       }
-
-      // if (
-      //   user_name.value === "Lochin" &&
-      //   user_email.value === "lochin@gmail.com" &&
-      //   user_password.value === "1234"
-      // ) {
-      //   localStorage.setItem("token", "daouhfoew7294w7r9fwh9w894w7hf");
-      //   user_name.value = "";
-      //   user_email.value = "";
-      //   user_password.value = "";
-      //   alert("Admin muvaffaqiyatli ro'yxatdan o'tdi");
-      //   location.href = "/company";
-      // } else {
-      //   alert("Admin malumotlari to'g'ri emas");
-      // }
     } else {
       let data = await fetch("http://localhost:1010/user", {
         method: "POST",

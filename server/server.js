@@ -27,6 +27,6 @@ app.use(bankRout)
 app.use(yearRout)
 
 app.listen(port, () => {
-    console.log(`IS RENNING ${port} PORT...`);
+    console.log(`IS RUNNING ${port} PORT...`);
 })
 

@@ -15,7 +15,6 @@ const postAdmin = async (req, res) => {
     let adminList = await pool.query
         (`SELECT * FROM admin WHERE admin_name = $1 AND admin_email = $2 AND admin_password = $3`,
             [admin_name, admin_email, admin_password])
-    console.log(adminList.rowCount);
     let token = await jwt.sign({ admin_password }, process.env.SECRET_KEY, {
         expiresIn: "1d"
     })

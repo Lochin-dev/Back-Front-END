@@ -16,7 +16,6 @@ const index = () => {
     e.preventDefault();
 
     const selectedItem = dataId.find((item) => item.id === selectedItemId);
-    console.log(selectedItem?.id);
 
     let { room_num, room_price, room_kv } = e.target;
 

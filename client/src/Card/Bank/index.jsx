@@ -25,7 +25,6 @@ const index = () => {
     e.preventDefault();
 
     const selectedItem = dataId.find((item) => item.id === selectedItemId);
-    console.log(selectedItem?.id);
 
     let { bank_title, bank_price } = e.target;
     let data = await fetch("http://localhost:1010/bank", {
@@ -44,7 +43,6 @@ const index = () => {
     alert(data?.msg);
     bank_title.value = "";
     bank_price.value = "";
-
     const response = await fetch("http://localhost:1010/bank");
     const newData = await response.json();
     setData(newData);

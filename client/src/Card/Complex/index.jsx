@@ -33,7 +33,6 @@ const index = () => {
     e.preventDefault();
 
     const selectedItem = dataId.find((item) => item.id === selectedItemId);
-    console.log(selectedItem?.id);
 
     let { complex_title, complex_adres } = e.target;
 

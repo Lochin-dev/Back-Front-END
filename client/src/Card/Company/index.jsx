@@ -38,7 +38,6 @@ const index = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     // Form submit qilganda ishlatiladigan ma'lumotlar
     const { textInput, fileInput } = formData;
     const data1 = new FormData();
@@ -53,9 +52,7 @@ const index = () => {
     );
     const data2 = await respons.json();
     let img = data2.secure_url;
-    console.log(img);
     // +++++++++++++++++++++++++++++++++++++++
-    console.log(textInput);
     let data = await fetch("http://localhost:1010/company", {
       method: "POST",
       headers: {

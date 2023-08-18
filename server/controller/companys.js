@@ -88,7 +88,7 @@ const deleteCompanys = async (req, res) => {
     const { id } = req.params;
     let deleteHome = await pool.query(`DELETE FROM homes WHERE complex_id IN (SELECT id FROM complexs WHERE company_id = $1) 
     AND complex_id IS NOT NULL`, [id]);
-    let deleteComplex = await pool.query(`DELETE FROM complexs WHERE company_id = $1 
+    let deleteComplex = await pool.query(`DELETE FROM complexs WHERE company_id = $1
     AND EXISTS (SELECT 1 FROM companys WHERE id = $1)`, [id]);
     let deleteCompany = await pool.query(` DELETE FROM companys WHERE id = $1`, [id]);
     if (deleteCompany.rowCount === 0) return res.status(404).json({ msg: 'Companys not found!' });

@@ -26,7 +26,6 @@ const apiHomes = async (req, res) => {
 
 const createHomes = async (req, res) => {
     const { home_num, home_price, home_kv, complex_id } = req.body
-    console.log(home_num);
     let homeCreate = await pool.query(`
     INSERT INTO homes( home_num, home_price, home_kv, complex_id)VALUES ($1, $2, $3, $4)`,
         [home_num, home_price, home_kv, complex_id]);

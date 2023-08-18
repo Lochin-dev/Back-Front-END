@@ -19,7 +19,6 @@ const index = () => {
     })
       .then((res) => res.json())
       .then((data) => data);
-    console.log(data?.msg);
     alert(data?.msg);
     user_name.value = "";
     user_email.value = "";
